@@ -17,6 +17,21 @@
         .song-container.active .song-lyrics { padding: 14px 16px; border-top: 1px solid #d3dce6; }
         .chorus { font-weight: bold; color: #2a6f9e; margin: 8px 0 0; }
     </style>
+    <!-- Legătura către manifestul PWA -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#000000">
+
+<!-- Înregistrarea Service Worker-ului în Android/Browser -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then(reg => console.log('Service Worker înregistrat cu succes!', reg))
+        .catch(err => console.log('Eroare la înregistrarea Service Worker-ului', err));
+    });
+  }
+</script>
+
 </head>
 <body>
 
